@@ -186,6 +186,102 @@ node seedSongs.js
 
 ---
 
+# 🚀 Deployment
+
+## 🌐 Live Application
+
+- **Frontend (Vercel):** https://moodify-phi-smoky.vercel.app 
+- **Backend (Render):** https://moodify-nd9y.onrender.com  
+
+---
+
+## 🐳 Backend Deployment (Docker + Render)
+
+The backend is containerized using Docker and deployed on Render via Docker Hub.
+
+### 🔧 Steps
+
+**1. Build Docker Image**
+```bash
+docker build -t moodify .
+```
+
+**2. Tag Image**
+```bash
+docker tag moodify amalsumesh/moodify:latest
+```
+
+**3. Push to Docker Hub**
+```bash
+docker push amalsumesh/moodify:latest
+```
+
+**4. Deploy on Render**
+- Create a new Web Service  
+- Select **Deploy from Docker Image**  
+- Use image:  
+```
+amalsumesh/moodify:latest
+```
+
+---
+
+## ⚙️ Backend Configuration
+
+Ensure your server listens on:
+
+```js
+app.listen(process.env.PORT || 5000, "0.0.0.0");
+```
+
+### Internal Services
+
+- Node.js API → Port 5000  
+- Flask ML Service → Port 5001 (internal only)
+
+---
+
+## 🌐 Frontend Deployment (Vercel)
+
+### 🔧 Steps
+
+```bash
+cd frontend
+npm run build
+```
+
+- Push code to GitHub  
+- Import project into Vercel  
+- Set environment variables:
+
+```
+VITE_API_BASE_URL=https://moodify-nd9y.onrender.com/api
+VITE_BACKEND_URL=https://moodify-nd9y.onrender.com
+```
+
+- Deploy 🚀
+
+---
+
+## 🔗 Architecture Overview
+
+```
+Frontend (Vercel)
+        ↓
+Backend API (Render - Node.js)
+        ↓
+ML Service (Flask - internal)
+```
+---
+
+## ⚠️ Notes
+
+- Render free tier may cause cold starts  
+- CORS must be enabled in backend  
+- Static files served via `/uploads`  
+- Do not use Vite dev server in production  
+
+
 ## 👨‍💻 Author
 
 Built by **Amal Sumesh**
