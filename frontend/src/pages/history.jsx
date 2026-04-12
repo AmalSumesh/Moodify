@@ -8,7 +8,7 @@ function History() {
     const [loading, setLoading] = useState(true);
     const [idToDelete, setIdToDelete] = useState(null);
     const navigate = useNavigate();
-    const BASE_URL = (import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api").replace("/api", "");
+    const BASE_URL = (import.meta.env.VITE_BACKEND_URL || "http://localhost:5000").replace("/api", "");
 
     useEffect(() => {
         const fetchHistory = async () => {
