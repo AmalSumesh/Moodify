@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+    <defs>
+        <linearGradient id="moodifyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00d2ff" />
+            <stop offset="50%" stop-color="#38bdf8" />
+            <stop offset="100%" stop-color="#9d4edd" />
+        </linearGradient>
+    </defs>
+    <!-- Headband -->
+    <path
+        d="M 8.5 21 C 8.5 11, 13.5 5.5, 20 5.5 C 26.5 5.5, 31.5 11, 31.5 21"
+        stroke="url(#moodifyGrad)"
+        stroke-width="4.5"
+        stroke-linecap="round"
+    />
+    <!-- Top inner arc -->
+    <path
+        d="M 14 8 C 16.5 6.8, 20 6.5, 26 8"
+        stroke="url(#moodifyGrad)"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        opacity="0.75"
+    />
+    <!-- Left ear cup -->
+    <rect x="5" y="18" width="7" height="14" rx="3.5" fill="url(#moodifyGrad)" />
+    <!-- Right ear cup -->
+    <rect x="28" y="18" width="7" height="14" rx="3.5" fill="url(#moodifyGrad)" />
+    <!-- Sound frequency equalizer bars -->
+    <path
+        d="M 16 23 V 27 M 20 19 V 31 M 24 23 V 27"
+        stroke="url(#moodifyGrad)"
+        stroke-width="3"
+        stroke-linecap="round"
+    />
+</svg>
