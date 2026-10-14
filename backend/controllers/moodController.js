@@ -153,8 +153,9 @@ const aiAnalysis = async (req, res) => {
         try {
             const { text } = req.body;
 
+            const mlServiceUrl = process.env.ML_SERVICE_URL || "http://localhost:8002/predict";
             const bertResponse = await axios.post(
-                "http://localhost:8002/predict",
+                mlServiceUrl,
                 { text }
             );
 
