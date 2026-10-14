@@ -1,0 +1,6 @@
+projectKey=Moodify
+serverUrl=http://localhost:9000
+serverVersion=26.10.0.133078
+dashboardUrl=http://localhost:9000/dashboard?id=Moodify
+ceTaskId=18f8c32a-e7f2-4267-a9fc-d0b593e3a59d
+ceTaskUrl=http://localhost:9000/api/ce/task?id=18f8c32a-e7f2-4267-a9fc-d0b593e3a59d

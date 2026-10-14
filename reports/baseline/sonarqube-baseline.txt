@@ -1,0 +1,13 @@
+SonarQube Baseline — Moodify
+Project key: Moodify
+Lines of code: approximately 3.1k
+Total issues: 44
+Security: E — 20 open issues
+Reliability: C — 24 open issues
+Maintainability: A — 11 open issues
+Code duplication: 5.2%
+Coverage: 0.0%
+Lines to cover: 671
+Accepted issues: 0
+Quality gate: Passed
+Analysis: Initial baseline
