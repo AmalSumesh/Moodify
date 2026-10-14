@@ -1,3 +1,5 @@
+"""Analyze text and predict its associated emotion using a transformer model."""
+
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from fastapi import FastAPI
@@ -21,47 +23,50 @@ label_names = dataset["train"].features["labels"].feature.names
 id_to_label = {i: label_names[i] for i in range(len(label_names))}
 
 emotion_map = {
-    'joy': 'happy',
-    'sadness': 'sad',
-    'anger': 'angry',
-    'fear': 'neutral',
-    'disgust': 'angry',
-    'surprise': 'energetic',
-    'admiration': 'happy',
-    'amusement': 'happy',
-    'annoyance': 'angry',
-    'approval': 'happy',
-    'caring': 'happy',
-    'confusion': 'neutral',
-    'curiosity': 'energetic',
-    'desire': 'energetic',
-    'disappointment': 'sad',
-    'disapproval': 'angry',
-    'embarrassment': 'neutral',
-    'excitement': 'energetic',
-    'gratitude': 'happy',
-    'grief': 'sad',
-    'love': 'happy',
-    'nervousness': 'neutral',
-    'optimism': 'happy',
-    'pride': 'happy',
-    'realization': 'neutral',
-    'relief': 'calm',
-    'remorse': 'sad',
-    'neutral': 'neutral'
+    "joy": "happy",
+    "sadness": "sad",
+    "anger": "angry",
+    "fear": "neutral",
+    "disgust": "angry",
+    "surprise": "energetic",
+    "admiration": "happy",
+    "amusement": "happy",
+    "annoyance": "angry",
+    "approval": "happy",
+    "caring": "happy",
+    "confusion": "neutral",
+    "curiosity": "energetic",
+    "desire": "energetic",
+    "disappointment": "sad",
+    "disapproval": "angry",
+    "embarrassment": "neutral",
+    "excitement": "energetic",
+    "gratitude": "happy",
+    "grief": "sad",
+    "love": "happy",
+    "nervousness": "neutral",
+    "optimism": "happy",
+    "pride": "happy",
+    "realization": "neutral",
+    "relief": "calm",
+    "remorse": "sad",
+    "neutral": "neutral",
 }
 
 
 class TextInput(BaseModel):
+    """Represent the text submitted for emotion prediction."""
+
     text: str
 
 
 def predict(text, threshold=0.3):
+    """Predict emotions whose model probabilities exceed the threshold."""
     inputs = tokenizer(
         text,
         return_tensors="pt",
         truncation=True,
-        padding=True
+        padding=True,
     ).to(device)
 
     with torch.no_grad():
@@ -81,20 +86,22 @@ def predict(text, threshold=0.3):
 
 @app.post("/predict")
 def predict_emotion(data: TextInput):
+    """Return the mapped emotion predicted from the submitted text."""
     predictions = predict(data.text)
 
     if not predictions:
         return {"emotion": "neutral"}
 
     top_emotion = predictions[0][0]
-    mapped_emotion = emotion_map.get(top_emotion, 'neutral')
+    mapped_emotion = emotion_map.get(top_emotion, "neutral")
     return {"emotion": mapped_emotion}
 
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(
         app,
         host="0.0.0.0",
-        port=8002
+        port=8002,
     )
