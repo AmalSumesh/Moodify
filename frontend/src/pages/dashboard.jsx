@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
 import { AuthContext } from "../context/AuthContext";
 import { PlayerContext } from "../context/PlayerContext";

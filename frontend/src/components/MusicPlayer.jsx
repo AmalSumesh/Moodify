@@ -1,4 +1,5 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import { PlayerContext } from "../context/PlayerContext";
 
@@ -20,8 +21,6 @@ export default function MusicPlayer() {
         closePlayer,
     } = useContext(PlayerContext);
 
-    const [isHovered, setIsHovered] = useState(false);
-
     if (!currentSong) return null;
 
     // Helper format seconds to mm:ss
@@ -42,8 +41,6 @@ export default function MusicPlayer() {
                 exit={{ y: 80, opacity: 0 }}
                 transition={{ duration: 0.35, ease: "easeOut" }}
                 className="fixed bottom-3 sm:bottom-5 left-3 right-3 sm:left-6 sm:right-6 max-w-5xl mx-auto z-50 select-none"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
             >
                 {/* Glow Backdrop */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#00d2ff]/20 via-[#38bdf8]/15 to-[#9d4edd]/25 rounded-3xl blur-xl opacity-80 pointer-events-none"></div>
@@ -158,6 +155,7 @@ export default function MusicPlayer() {
                                         </svg>
                                     )}
                                 </button>
+
                                 <input
                                     type="range"
                                     min="0"
@@ -197,6 +195,7 @@ export default function MusicPlayer() {
                                 onChange={(e) => seek(parseFloat(e.target.value))}
                                 className="w-full h-1.5 bg-slate-800 rounded-full appearance-none cursor-pointer accent-cyan-400 group-hover:h-2 transition-all"
                             />
+
                             {/* Glowing progress accent fill */}
                             <div
                                 style={{ width: `${progressPercent}%` }}
