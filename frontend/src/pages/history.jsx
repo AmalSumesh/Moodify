@@ -59,7 +59,6 @@ function History() {
     return (
         <div className="min-h-screen bg-[#0b0e17] text-white selection:bg-cyan-500/30 selection:text-white relative overflow-x-hidden font-sans">
             {/* Ambient Lighting Orbs */}
-            <div className="absolute top-0 -left-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
             <div className="absolute top-1/3 -right-40 w-96 h-96 bg-purple-600/10 rounded-full blur-[140px] pointer-events-none"></div>
 
             {/* Top Navigation Bar */}
@@ -68,43 +67,11 @@ function History() {
                     onClick={() => navigate("/")}
                     className="flex items-center gap-3 cursor-pointer group select-none"
                 >
-                    <div className="relative w-10 h-10 flex items-center justify-center">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-[#00d2ff]/30 to-[#9d4edd]/30 rounded-2xl blur-md group-hover:scale-110 transition-transform duration-300"></div>
-                        <svg
-                            className="w-10 h-10 relative z-10 drop-shadow-[0_0_12px_rgba(0,210,255,0.6)]"
-                            viewBox="0 0 40 40"
-                            fill="none"
-                        >
-                            <defs>
-                                <linearGradient id="histHpMusicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stopColor="#00d2ff" />
-                                    <stop offset="50%" stopColor="#38bdf8" />
-                                    <stop offset="100%" stopColor="#9d4edd" />
-                                </linearGradient>
-                            </defs>
-                            <path
-                                d="M 8.5 21 C 8.5 11, 13.5 5.5, 20 5.5 C 26.5 5.5, 31.5 11, 31.5 21"
-                                stroke="url(#histHpMusicGrad)"
-                                strokeWidth="4.5"
-                                strokeLinecap="round"
-                            />
-                            <path
-                                d="M 14 8 C 16.5 6.8, 20 6.5, 26 8"
-                                stroke="url(#histHpMusicGrad)"
-                                strokeWidth="2.5"
-                                strokeLinecap="round"
-                                opacity="0.75"
-                            />
-                            <rect x="5" y="18" width="7" height="14" rx="3.5" fill="url(#histHpMusicGrad)" />
-                            <rect x="28" y="18" width="7" height="14" rx="3.5" fill="url(#histHpMusicGrad)" />
-                            <path
-                                d="M 16 23 V 27 M 20 19 V 31 M 24 23 V 27"
-                                stroke="url(#histHpMusicGrad)"
-                                strokeWidth="3"
-                                strokeLinecap="round"
-                            />
-                        </svg>
-                    </div>
+                    <img
+                        src="/favicon.svg"
+                        alt="Moodify"
+                        className="w-10 h-10"
+                    />
                     <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-[#00d2ff] via-[#38bdf8] to-[#9d4edd] bg-clip-text text-transparent font-sans">
                         Moodify
                     </span>

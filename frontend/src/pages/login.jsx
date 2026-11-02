@@ -41,7 +41,6 @@ function Login() {
         <div className="fixed inset-0 w-full h-full bg-[#0b0e17] text-white flex flex-col justify-between overflow-hidden select-none">
             {/* Ambient Lighting Background Accents (Clipped) */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                <div className="absolute -top-24 -left-24 w-80 h-80 bg-cyan-500/15 rounded-full blur-[130px]"></div>
                 <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-purple-600/15 rounded-full blur-[130px]"></div>
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-400/5 rounded-full blur-[140px]"></div>
             </div>
@@ -52,48 +51,11 @@ function Login() {
                     onClick={() => navigate("/")}
                     className="flex items-center gap-3 cursor-pointer group"
                 >
-                    <div className="relative w-11 h-11 flex items-center justify-center">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-[#00d2ff]/30 to-[#9d4edd]/30 rounded-2xl blur-md group-hover:scale-110 transition-transform duration-300"></div>
-                        <svg
-                            className="w-11 h-11 relative z-10 drop-shadow-[0_0_12px_rgba(0,210,255,0.6)]"
-                            viewBox="0 0 40 40"
-                            fill="none"
-                        >
-                            <defs>
-                                <linearGradient id="hpMusicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stopColor="#00d2ff" />
-                                    <stop offset="50%" stopColor="#38bdf8" />
-                                    <stop offset="100%" stopColor="#9d4edd" />
-                                </linearGradient>
-                            </defs>
-                            {/* Bolder Headband */}
-                            <path
-                                d="M 8.5 21 C 8.5 11, 13.5 5.5, 20 5.5 C 26.5 5.5, 31.5 11, 31.5 21"
-                                stroke="url(#hpMusicGrad)"
-                                strokeWidth="4.5"
-                                strokeLinecap="round"
-                            />
-                            {/* Headband top cushion */}
-                            <path
-                                d="M 14 8 C 16.5 6.8, 20 6.5, 26 8"
-                                stroke="url(#hpMusicGrad)"
-                                strokeWidth="2.5"
-                                strokeLinecap="round"
-                                opacity="0.75"
-                            />
-                            {/* Bolder Left earcup */}
-                            <rect x="5" y="18" width="7" height="14" rx="3.5" fill="url(#hpMusicGrad)" />
-                            {/* Bolder Right earcup */}
-                            <rect x="28" y="18" width="7" height="14" rx="3.5" fill="url(#hpMusicGrad)" />
-                            {/* Bolder Soundwave audio pulse inside */}
-                            <path
-                                d="M 16 23 V 27 M 20 19 V 31 M 24 23 V 27"
-                                stroke="url(#hpMusicGrad)"
-                                strokeWidth="3"
-                                strokeLinecap="round"
-                            />
-                        </svg>
-                    </div>
+                    <img
+                        src="/favicon.svg"
+                        alt="Moodify"
+                        className="w-11 h-11"
+                    />
                     <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-[#00d2ff] via-[#38bdf8] to-[#9d4edd] bg-clip-text text-transparent font-sans">
                         Moodify
                     </span>
@@ -122,25 +84,12 @@ function Login() {
                     <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500/20 to-purple-600/20 rounded-2xl blur-lg opacity-75"></div>
 
                     <div className="relative bg-[#0d1222]/90 backdrop-blur-2xl border border-slate-700/50 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(0,229,255,0.08)] px-6 py-6 sm:px-8 sm:py-7 rounded-2xl">
-                        {/* Header icon badge with bolder headphone */}
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00d2ff]/15 via-[#38bdf8]/10 to-[#9d4edd]/20 border border-[#9d4edd]/30 flex items-center justify-center mx-auto mb-2.5 shadow-[0_0_20px_rgba(0,210,255,0.25)]">
-                            <svg className="w-7 h-7" viewBox="0 0 40 40" fill="none">
-                                <path
-                                    d="M 8.5 21 C 8.5 11, 13.5 5.5, 20 5.5 C 26.5 5.5, 31.5 11, 31.5 21"
-                                    stroke="url(#hpMusicGrad)"
-                                    strokeWidth="4.5"
-                                    strokeLinecap="round"
-                                />
-                                <rect x="5" y="18" width="7" height="14" rx="3.5" fill="url(#hpMusicGrad)" />
-                                <rect x="28" y="18" width="7" height="14" rx="3.5" fill="url(#hpMusicGrad)" />
-                                <path
-                                    d="M 16 23 V 27 M 20 19 V 31 M 24 23 V 27"
-                                    stroke="url(#hpMusicGrad)"
-                                    strokeWidth="3"
-                                    strokeLinecap="round"
-                                />
-                            </svg>
-                        </div>
+                        {/* Header icon badge with favicon logo */}
+                        <img
+                            src="/favicon.svg"
+                            alt="Moodify"
+                            className="w-12 h-12 mx-auto mb-2.5"
+                        />
 
                         <h2 className="text-2xl font-bold text-white tracking-tight text-center">
                             Welcome Back
