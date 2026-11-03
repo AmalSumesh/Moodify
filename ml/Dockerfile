@@ -7,10 +7,13 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
-# Install lightweight CPU-only PyTorch (slashes container size by >1.5GB)
-RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
+# Upgrade pip to handle modern wheel metadata and naming
+RUN pip install --no-cache-dir --upgrade pip
 
-# Install application dependencies (ensures CPU wheel is prioritized)
+# Install lightweight CPU PyTorch using --extra-index-url (keeps PyPI available for build dependencies)
+RUN pip install --no-cache-dir torch --extra-index-url https://download.pytorch.org/whl/cpu
+
+# Install application dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
 
